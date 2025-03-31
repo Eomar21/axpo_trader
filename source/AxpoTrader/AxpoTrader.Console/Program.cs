@@ -1,11 +1,9 @@
-﻿using AxpoTrader.Console.Services;
-using AxpoTrader.Services;
+﻿using AxpoTrader.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Serilog;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
-using System.Runtime;
 using AxpoTrader.Models.Settings;
 using System;
 
@@ -19,7 +17,6 @@ namespace AxpoTrader.Console
             Log.Logger = new LoggerConfiguration()
             .MinimumLevel.Debug()
             .WriteTo.Console()
-            .WriteTo.File("logs\\trading.txt", rollingInterval: RollingInterval.Day)
             .CreateLogger();
 
             Log.Information("Starting up the application");

@@ -53,6 +53,10 @@ namespace AxpoTrader.Services
             {
                 m_CsvWriter.Write(trades);
             }
+            else
+            {
+                m_Logger.LogWarning("No trades found.");
+            }
 
         }
     }
