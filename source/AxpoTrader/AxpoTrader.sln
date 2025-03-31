@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AxpoTrader.Services", "Axpo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AxpoTrader.Services.NUnit", "AxpoTrader.Services.NUnit\AxpoTrader.Services.NUnit.csproj", "{4476F638-5ADD-475A-AFFB-38EFE14FACCB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AxpoTrader.Models.NUnits", "AxpoTrader.Models.NUnits\AxpoTrader.Models.NUnits.csproj", "{AA680F98-BE30-4BE3-8FFC-FA4C14101804}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{4476F638-5ADD-475A-AFFB-38EFE14FACCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4476F638-5ADD-475A-AFFB-38EFE14FACCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4476F638-5ADD-475A-AFFB-38EFE14FACCB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA680F98-BE30-4BE3-8FFC-FA4C14101804}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA680F98-BE30-4BE3-8FFC-FA4C14101804}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA680F98-BE30-4BE3-8FFC-FA4C14101804}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA680F98-BE30-4BE3-8FFC-FA4C14101804}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

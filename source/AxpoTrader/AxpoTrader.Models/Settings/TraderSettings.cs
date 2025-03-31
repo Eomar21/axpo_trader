@@ -2,8 +2,8 @@
 {
     public class TraderSettings
     {
-        public required string CsvPath { get; set; }
-        public required int IntervalMinutes { get; set; }
+        public string CsvPath { get; set; }
+        public int IntervalMinutes { get; set; }
 
         public static string TraderSettingSection => "TraderSettings";
     }

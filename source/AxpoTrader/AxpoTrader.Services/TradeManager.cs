@@ -14,6 +14,7 @@ namespace AxpoTrader.Services
             m_PowerService = powerService;
             m_Logger = logger;
         }
+
         public async Task<ProcessedTrades> ProcessTradesAsync(DateTime dateTime)
         {
             var processedData = new ProcessedTrades(dateTime);
@@ -32,10 +33,8 @@ namespace AxpoTrader.Services
                     }
                     x.VolumeSum = volumeAggregate;
                     m_Logger.LogInformation("Trade at {tradeTime} is with volume sum of {tradeVolumeSum}", x.Time, x.VolumeSum.ToString());
-
                 });
                 return processedData;
-
             }
             m_Logger.LogWarning("Could not find any for trades at {dateTime}", dateTime);
 

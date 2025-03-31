@@ -27,9 +27,9 @@ namespace AxpoTrader.Services
             m_TraderSettings = options.Value;
             retryTimeInSeconds = TimeSpan.FromMinutes(m_TraderSettings.IntervalMinutes);
         }
+
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-
             while (!stoppingToken.IsCancellationRequested)
             {
                 try
@@ -43,7 +43,6 @@ namespace AxpoTrader.Services
 
                 await Task.Delay(retryTimeInSeconds, stoppingToken);
             }
-
         }
 
         private async Task Process()
@@ -57,7 +56,6 @@ namespace AxpoTrader.Services
             {
                 m_Logger.LogWarning("No trades found.");
             }
-
         }
     }
 }

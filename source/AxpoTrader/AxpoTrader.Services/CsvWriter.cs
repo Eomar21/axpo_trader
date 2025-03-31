@@ -39,8 +39,8 @@ namespace AxpoTrader.Services
 
                 m_Logger.LogInformation($"Writing CSV file to {fullPath}");
 
-                string directory = Path.GetDirectoryName(fullPath);
-                if (!Directory.Exists(directory))
+                string? directory = Path.GetDirectoryName(fullPath);
+                if (directory != null && !Directory.Exists(directory))
                 {
                     Directory.CreateDirectory(directory);
                 }

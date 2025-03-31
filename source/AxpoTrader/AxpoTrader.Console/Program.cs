@@ -1,18 +1,17 @@
-﻿using AxpoTrader.Services;
+﻿using AxpoTrader.Models.Settings;
+using AxpoTrader.Services;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Serilog;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Configuration;
-using AxpoTrader.Models.Settings;
 using System;
-
+using System.Threading.Tasks;
 
 namespace AxpoTrader.Console
 {
     internal class Program
     {
-        static async Task Main(string[] args)
+        private static async Task Main(string[] args)
         {
             Log.Logger = new LoggerConfiguration()
             .MinimumLevel.Debug()
@@ -32,7 +31,6 @@ namespace AxpoTrader.Console
                    services.WithEssentialServices();
                    services.AddOptions();
                    services.Configure<TraderSettings>(config.GetSection(TraderSettings.TraderSettingSection));
-
                })
                .Build();
 
