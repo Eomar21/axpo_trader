@@ -1,10 +1,7 @@
-﻿using Microsoft.Extensions.Hosting;
+﻿using AxpoTrader.Services;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Spectre.Console;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -12,16 +9,22 @@ namespace AxpoTrader.Console.Services
 {
     internal class MainHostedService : IHostedService
     {
-        private readonly ILogger<MainHostedService> m_logger;
+        private readonly ILogger<MainHostedService> m_Logger;
+        private readonly ITradeManager m_TradeManager;
 
-        public MainHostedService(ILogger<MainHostedService> logger)
+        public MainHostedService(
+            ILogger<MainHostedService> logger,
+            ITradeManager tradeManager)
         {
-            m_logger = logger;
+            m_Logger = logger;
+            m_TradeManager = tradeManager;
         }
-        public Task StartAsync(CancellationToken cancellationToken)
+        public async Task StartAsync(CancellationToken cancellationToken)
         {
-            m_logger.LogInformation("MainHostedService started");
+            m_Logger.LogInformation("MainHostedService started");
 
+
+            // TODO make user input here.
             string name = AnsiConsole.Ask<string>("What's your [green]name[/]?");
 
             // Display a friendly greeting with color
@@ -36,14 +39,18 @@ namespace AxpoTrader.Console.Services
 
             AnsiConsole.MarkupLine($"You selected: [underline]{choice}[/]");
 
+            //var trades = await m_TradeManager.ProcessTradesAsync(DateTime.Now);
 
 
-            return Task.CompletedTask;
+
+
+
+
         }
 
         public Task StopAsync(CancellationToken cancellationToken)
         {
-            m_logger.LogInformation("MainHostedService stopped");
+            m_Logger.LogInformation("MainHostedService stopped");
             return Task.CompletedTask;
         }
     }

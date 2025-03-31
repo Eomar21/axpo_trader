@@ -8,10 +8,15 @@
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.3" />
+		<PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="9.0.3" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<Folder Include="lib\" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\AxpoTrader.Models\AxpoTrader.Models.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

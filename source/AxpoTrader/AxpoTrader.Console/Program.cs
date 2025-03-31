@@ -5,6 +5,9 @@ using Microsoft.Extensions.Hosting;
 using Serilog;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
+using System.Runtime;
+using AxpoTrader.Models.Settings;
+using System;
 
 
 namespace AxpoTrader.Console
@@ -21,14 +24,18 @@ namespace AxpoTrader.Console
 
             Log.Information("Starting up the application");
 
+            var config = new ConfigurationBuilder()
+                .SetBasePath(AppContext.BaseDirectory)
+                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                .Build();
+
             var host = Host.CreateDefaultBuilder(args)
                .ConfigureServices((context, services) =>
                {
                    services.WithEssentialServices();
-                   services.AddHostedService<MainHostedService>();
-               }).ConfigureAppConfiguration((hostingContext, config) =>
-               {
-                   config.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+                   services.AddOptions();
+                   services.Configure<TraderSettings>(config.GetSection(TraderSettings.TraderSettingSection));
+
                })
                .Build();
 

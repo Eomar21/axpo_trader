@@ -8,6 +8,9 @@ namespace AxpoTrader.Services
         public static void WithEssentialServices(this IServiceCollection services)
         {
             services.AddSingleton<IPowerService, PowerService>();
+            services.AddSingleton<ITradeManager, TradeManager>();
+            services.AddSingleton<ICsvWriter, CsvWriter>();
+            services.AddHostedService<TradeScheduledExtractor>();
         }
     }
 }
